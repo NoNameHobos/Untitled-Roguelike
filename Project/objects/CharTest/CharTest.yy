@@ -1,23 +1,14 @@
 {
-    "id": "4a155973-9368-4314-9f99-3c80d6553775",
+    "id": "74bdea78-296e-44e6-980a-dcdef0ac883c",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_player",
+    "name": "CharTest",
     "eventList": [
-        {
-            "id": "b5c51a8c-4b60-4b60-8c17-8fbd31b498ff",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "4a155973-9368-4314-9f99-3c80d6553775"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "4a155973-9368-4314-9f99-3c80d6553775",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
