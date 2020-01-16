@@ -10,8 +10,6 @@
 	
 	var jump_input = 0;
 	jump_input += sign(keyboard_check(vk_space));
-	var jump_pressed_input = 0;
-	jump_pressed_input += sign(keyboard_check_pressed(vk_space));
 	
 #endregion
 
@@ -50,11 +48,23 @@
 				break;
 			}
 			
-			x_speed = 0;
+			if (jump_input != 0) {
+				timer_jump = jump_time;
+				state = playerState.jump;
+				break;
+			}
+			
+			x_speed = 0
 			
 			break;
 			
 		case playerState.walk:
+		
+			if (jump_input != 0) {
+				timer_jump = jump_time;
+				state = playerState.jump;
+				break;
+			}
 		
 			if (x_input == 0) {
 				state = playerState.skid;
@@ -77,7 +87,41 @@
 				break;
 			}
 			
+			if (jump_input != 0) {
+				timer_jump = jump_time;
+				state = playerState.jump;
+				break;
+			}
+			
 			x_speed = lerp(x_speed,0,weight);
+			
+			break;
+			
+		case playerState.jump:
+		
+			if (jump_input != 0 && timer_jump > 0) {
+				y_speed = -jump_speed;
+			}
+		
+			if (y_speed >= 0) {
+				state = playerState.fall;
+				break;
+			}
+			
+			x_speed = x_input*lerp(abs(x_speed),walk_speed,weight*air_control);
+			
+			timer_jump--;
+		
+			break;
+	
+		case playerState.fall:
+		
+			if (place_meeting(x,y+1,Solid)) {
+				state = playerState.idle;
+				break;
+			}
+			
+			x_speed = x_input*lerp(abs(x_speed),walk_speed,weight*air_control);
 			
 			break;
 			
