@@ -102,6 +102,10 @@
 			if (jump_input != 0 && timer_jump > 0) {
 				y_speed = -jump_speed;
 			}
+			
+			if (jump_input == 0) {
+				y_speed += GRAVITY*weight;
+			}
 		
 			if (y_speed >= 0) {
 				state = playerState.fall;
