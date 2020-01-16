@@ -1,8 +1,8 @@
 {
-    "id": "113d4485-3a1a-4358-a5a1-e496cda28517",
+    "id": "3b48cf90-6c80-4fc4-9ba9-7b4131db4cdb",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "weightKg",
+    "name": "weightKgToDec",
     "IsCompatibility": false,
     "IsDnD": false
 }

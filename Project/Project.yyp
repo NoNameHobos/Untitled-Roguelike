@@ -58,7 +58,7 @@
             "Key": "113d4485-3a1a-4358-a5a1-e496cda28517",
             "Value": {
                 "id": "4d364813-e88a-44ae-9122-7983805beed3",
-                "resourcePath": "scripts\\weightKg\\weightKg.yy",
+                "resourcePath": "scripts\\weightDecToKg\\weightDecToKg.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -90,7 +90,7 @@
             "Key": "3b48cf90-6c80-4fc4-9ba9-7b4131db4cdb",
             "Value": {
                 "id": "0d0cd21d-d975-4b26-9f20-9250fe64d41e",
-                "resourcePath": "scripts\\weightDec\\weightDec.yy",
+                "resourcePath": "scripts\\weightKgToDec\\weightKgToDec.yy",
                 "resourceType": "GMScript"
             }
         },
