@@ -16,7 +16,7 @@ switch(character) {
 		char = instance_create_layer(room_width/2,room_height/2,"Player",CharTest);
 		//Set Default Variables
 		char.hp = hp;
-		char.weight = weight;
+		char.weight = weightDec(weight);
 		char.walk_speed = walk_speed;
 		char.jump_speed = jump_speed;
 		char.jumps = jumps;

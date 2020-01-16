@@ -71,7 +71,7 @@
 				break;
 			}
 		
-			x_speed = x_input*lerp(abs(x_speed),walk_speed,weight);
+			x_speed = x_input*lerp(abs(x_speed),walk_speed,(1-weight));
 			
 			break;
 			
@@ -93,7 +93,7 @@
 				break;
 			}
 			
-			x_speed = lerp(x_speed,0,weight);
+			x_speed = lerp(x_speed,0,(1-weight));
 			
 			break;
 			
@@ -125,7 +125,7 @@
 				break;
 			}
 			
-			x_speed = x_input*lerp(abs(x_speed),walk_speed,weight*air_control);
+			x_speed = x_input*lerp(abs(x_speed),walk_speed,(1-weight)*air_control);
 			
 			break;
 			
