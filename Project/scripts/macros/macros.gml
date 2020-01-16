@@ -1,6 +1,6 @@
 #region global constants
 
-	#macro GRAVITY 1
+	#macro GRAVITY 0.7
 	#macro null undefined
 
 #endregion

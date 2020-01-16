@@ -12,5 +12,6 @@ jumps = null;
 
 y_speed = 0;
 x_speed = 0;
+state = playerState.idle;
 
 #endregion

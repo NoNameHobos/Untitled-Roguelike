@@ -19,30 +19,72 @@
 
 	y_speed += GRAVITY;
 
-
+	if (place_meeting(x,y+y_speed,Solid)) {
+		while (!place_meeting(x,y+sign(y_speed),Solid)) {
+			y += sign(y_speed);
+		}
+		y_speed = 0;
+	}
+	
+	y += y_speed;
+	
+	if (place_meeting(x+x_speed,y,Solid)) {
+		while (!place_meeting(x+sign(x_speed),y,Solid)) {
+			x += sign(x_speed);
+		}
+		x_speed = 0;
+	}
+	
+	
+	x += x_speed;
 
 #endregion
 
 #region State Dependant Events
 
-	switch(playerState) {
+	switch(state) {
 		case playerState.idle:
-			//idle code here
+		
+			if (x_input != 0) {
+				state = playerState.walk;
+				break;
+			}
+			
+			x_speed = 0;
+			
 			break;
+			
 		case playerState.walk:
-			//walk code here
+		
+			if (x_input == 0) {
+				state = playerState.skid;
+				break;
+			}
+		
+			x_speed = x_input*lerp(abs(x_speed),walk_speed,weight);
+			
 			break;
+			
+		case playerState.skid:
+			
+			if (x_input != 0) {
+				state = playerState.walk;
+				break;
+			}
+			
+			if (abs(x_speed) < 0.1) {
+				state = playerState.idle;
+				break;
+			}
+			
+			x_speed = lerp(x_speed,0,weight);
+			
+			break;
+			
 		default:
 			show_debug_message("Invalid Player State");
 			break;
 }
-
-#endregion
-
-#region Move
-
-	x += x_speed;
-	y += y_speed;
 
 #endregion
 
