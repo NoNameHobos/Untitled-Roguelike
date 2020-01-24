@@ -70,6 +70,11 @@
 				state = playerState.skid;
 				break;
 			}
+			
+			if (!place_meeting(x,y+1,Solid)) {
+				state = playerState.fall;
+				break;
+			}
 		
 			x_speed = x_input*lerp(abs(x_speed),walk_speed,(1-weight));
 			
@@ -84,6 +89,11 @@
 			
 			if (abs(x_speed) < 0.1) {
 				state = playerState.idle;
+				break;
+			}
+			
+			if (!place_meeting(x,y+1,Solid)) {
+				state = playerState.fall;
 				break;
 			}
 			
@@ -112,7 +122,7 @@
 				break;
 			}
 			
-			x_speed = x_input*lerp(abs(x_speed),walk_speed,weight*air_control);
+			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*air_control);
 			
 			timer_jump--;
 		
@@ -121,11 +131,11 @@
 		case playerState.fall:
 		
 			if (place_meeting(x,y+1,Solid)) {
-				state = playerState.idle;
+				state = playerState.skid;
 				break;
 			}
 			
-			x_speed = x_input*lerp(abs(x_speed),walk_speed,(1-weight)*air_control);
+			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*air_control);
 			
 			break;
 			
