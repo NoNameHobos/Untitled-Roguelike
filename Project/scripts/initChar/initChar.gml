@@ -1,4 +1,4 @@
-///initChar(character, hp, weight, walk_speed, jump_speed, jumps, jump_time)
+///initChar(character, hp, weight, walk_speed, jump_speed, jumps, jump_time, arm_x, arm_y)
 
 var character = argument[0]; //arg[0] = "TEST" or some other Macro
 var hp = argument[1];
@@ -8,6 +8,9 @@ var jump_speed = argument[4];
 var jumps = argument[5];
 var jump_time = argument[6];
 var air_control = argument[7];
+var arm = argument[8];
+var arm_x = argument[9];
+var arm_y = argument[10];
 
 switch(character) {
 	case "TEST":
@@ -22,6 +25,9 @@ switch(character) {
 		char.jumps = jumps;
 		char.jump_time = jump_time;
 		char.air_control = air_control;
+		char.arm = arm;
+		char.arm_x = arm_x;
+		char.arm_y = arm_y;
 		break;
 	default:
 		show_debug_message("INVALID CHARACTER TYPE");

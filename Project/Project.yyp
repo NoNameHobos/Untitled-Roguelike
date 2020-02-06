@@ -293,6 +293,14 @@
                 "resourcePath": "rooms\\rm_testRoom\\rm_testRoom.yy",
                 "resourceType": "GMRoom"
             }
+        },
+        {
+            "Key": "ff9b382d-d8b1-4853-8e35-866d2b969920",
+            "Value": {
+                "id": "80feeb9c-ee07-4607-9ff7-3f8b52d14dfa",
+                "resourcePath": "sprites\\spr_charTestArmIdle\\spr_charTestArmIdle.yy",
+                "resourceType": "GMSprite"
+            }
         }
     ],
     "script_order": [
