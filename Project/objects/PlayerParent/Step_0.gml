@@ -11,6 +11,11 @@
 	var jump_input = 0;
 	jump_input += sign(keyboard_check(vk_space));
 	
+	arm_angle = point_direction(x+arm_x,y+arm_y,mouse_x,mouse_y);
+	
+	var attack_light_input = 0;
+	attack_light_input = mouse_check_button_pressed(mb_left);
+	
 #endregion
 
 #region Non-State Dependant Events
@@ -143,6 +148,10 @@
 			show_debug_message("Invalid Player State");
 			break;
 }
+
+#endregion
+
+#region attack states
 
 #endregion
 

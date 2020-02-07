@@ -167,6 +167,14 @@
             }
         },
         {
+            "Key": "88a3333d-7037-4fc6-a426-215ae09ead17",
+            "Value": {
+                "id": "c54976a7-3dd0-4dd0-a557-0aaea5201267",
+                "resourcePath": "sprites\\spr_charTestArmAttack1\\spr_charTestArmAttack1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8ef69623-2338-4884-b461-13a3cf6a00d8",
             "Value": {
                 "id": "8e63f400-5fd4-4224-8df7-00047c34e026",
