@@ -46,16 +46,18 @@
 #region State Dependant Events
 
 	switch(state) {
-		case playerState.idle:
+		case PLAYER_STATE.IDLE:
 		
 			if (x_input != 0) {
-				state = playerState.walk;
+				state = PLAYER_STATE.WALK;
+				previous_state = PLAYER_STATE.IDLE;
 				break;
 			}
 			
 			if (jump_input != 0) {
 				timer_jump = jump_time;
-				state = playerState.jump;
+				state = PLAYER_STATE.JUMP;
+				previous_state = PLAYER_STATE.IDLE;
 				break;
 			}
 			
@@ -63,21 +65,24 @@
 			
 			break;
 			
-		case playerState.walk:
+		case PLAYER_STATE.WALK:
 		
 			if (jump_input != 0) {
 				timer_jump = jump_time;
-				state = playerState.jump;
+				state = PLAYER_STATE.JUMP;
+				previous_state = PLAYER_STATE.WALK;
 				break;
 			}
 		
 			if (x_input == 0) {
-				state = playerState.skid;
+				state = PLAYER_STATE.SKID;
+				previous_state = PLAYER_STATE.WALK;
 				break;
 			}
 			
 			if (!place_meeting(x,y+1,Solid)) {
-				state = playerState.fall;
+				state = PLAYER_STATE.FALL;
+				previous_state = PLAYER_STATE.WALK;
 				break;
 			}
 		
@@ -85,26 +90,30 @@
 			
 			break;
 			
-		case playerState.skid:
+		case PLAYER_STATE.SKID:
 			
 			if (x_input != 0) {
-				state = playerState.walk;
+				state = PLAYER_STATE.WALK;
+				previous_state = PLAYER_STATE.SKID;
 				break;
 			}
 			
 			if (abs(x_speed) < 0.1) {
-				state = playerState.idle;
+				state = PLAYER_STATE.IDLE;
+				previous_state = PLAYER_STATE.SKID;
 				break;
 			}
 			
 			if (!place_meeting(x,y+1,Solid)) {
-				state = playerState.fall;
+				state = PLAYER_STATE.FALL;
+				previous_state = PLAYER_STATE.SKID;
 				break;
 			}
 			
 			if (jump_input != 0) {
 				timer_jump = jump_time;
-				state = playerState.jump;
+				state = PLAYER_STATE.JUMP;
+				previous_state = PLAYER_STATE.SKID;
 				break;
 			}
 			
@@ -112,7 +121,7 @@
 			
 			break;
 			
-		case playerState.jump:
+		case PLAYER_STATE.JUMP:
 		
 			if (jump_input != 0 && timer_jump > 0) {
 				y_speed = -jump_speed;
@@ -123,24 +132,26 @@
 			}
 		
 			if (y_speed >= 0) {
-				state = playerState.fall;
+				state = PLAYER_STATE.FALL;
+				previous_state = PLAYER_STATE.JUMP;
 				break;
 			}
 			
-			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*air_control);
+			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*jump_air_control);
 			
 			timer_jump--;
 		
 			break;
 	
-		case playerState.fall:
+		case PLAYER_STATE.FALL:
 		
 			if (place_meeting(x,y+1,Solid)) {
-				state = playerState.skid;
+				state = PLAYER_STATE.SKID;
+				previous_state = PLAYER_STATE.FALL;
 				break;
 			}
 			
-			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*air_control);
+			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*jump_air_control);
 			
 			break;
 			

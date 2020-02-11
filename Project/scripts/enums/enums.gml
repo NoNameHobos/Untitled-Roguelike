@@ -7,14 +7,47 @@
 
 #endregion
 
-#region playerState
+#region PLAYER_STATE
 
-	enum playerState {
-		idle,
-		walk,
-		skid,
-		jump,
-		fall
+	enum PLAYER_STATE {
+		IDLE,
+		WALK,
+		SKID,
+		JUMP,
+		FALL
+	}
+
+#endregion
+
+#region PLAYER
+
+	enum PLAYER {
+		TEST = 0	
+	}
+	
+#endregion
+
+#region PLAYER_STATS
+   //hp, weight, walk_speed, jump_speed, jumps, jump_time,air_control
+	enum PLAYER_STATS {
+		HP,
+		WEIGHT,
+		WALK_SPEED,
+		JUMP_SPEED,
+		JUMPS,
+		JUMP_TIME,
+	    JUMP_AIR_CONTROL
+	}
+
+#endregion
+
+#region PLAYER_SPRITES
+
+	enum PLAYER_SPRITES {
+		IDLE,
+		ARM_IDLE,
+		ARM_X,
+		ARM_Y
 	}
 
 #endregion

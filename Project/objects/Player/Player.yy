@@ -2,7 +2,7 @@
     "id": "4a155973-9368-4314-9f99-3c80d6553775",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "PlayerParent",
+    "name": "Player",
     "eventList": [
         {
             "id": "b5c51a8c-4b60-4b60-8c17-8fbd31b498ff",
@@ -35,26 +35,6 @@
             "m_owner": "4a155973-9368-4314-9f99-3c80d6553775"
         },
         {
-            "id": "a99e8279-f97a-4e55-8091-53b957076c8c",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 60,
-            "eventtype": 6,
-            "m_owner": "4a155973-9368-4314-9f99-3c80d6553775"
-        },
-        {
-            "id": "2301b288-6eb5-406d-b4ce-a5420a20b81d",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 61,
-            "eventtype": 6,
-            "m_owner": "4a155973-9368-4314-9f99-3c80d6553775"
-        },
-        {
             "id": "d594450c-4bf7-4286-8dad-c6fb2b12e7f3",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -83,6 +63,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "00000000-0000-0000-0000-000000000000",
+    "spriteId": "9c55c286-3199-4d9e-899f-e38ca81b2bd8",
     "visible": true
 }
