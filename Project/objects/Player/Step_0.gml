@@ -139,9 +139,9 @@
 				break;
 			}
 			
-			if (jump_input_pressed != 0 && jumps != 0 && timer_jump != jump_time) {
+			if (jump_input_pressed != 0 && djumps != 0 && timer_jump != jump_time) {
 				timer_jump = djump_time;
-				jumps_used++;
+				djumps_used++;
 				state = PLAYER_STATE.DJUMP;
 				previous_state = PLAYER_STATE.JUMP;
 				break;
@@ -169,9 +169,9 @@
 				break;
 			}
 			
-			if (jump_input_pressed != 0 && jumps > jumps_used && timer_jump != djump_time) {
+			if (jump_input_pressed != 0 && djumps > djumps_used && timer_jump != djump_time) {
 				timer_jump = djump_time;
-				jumps_used++;
+				djumps_used++;
 				state = PLAYER_STATE.DJUMP;
 				previous_state = PLAYER_STATE.DJUMP;
 				break;
@@ -188,13 +188,13 @@
 			if (place_meeting(x,y+1,Solid)) {
 				state = PLAYER_STATE.SKID;
 				previous_state = PLAYER_STATE.FALL;
-				jumps_used = 0;
+				djumps_used = 0;
 				break;
 			}
 			
-			if (jump_input_pressed != 0 and jumps > jumps_used) {
+			if (jump_input_pressed != 0 and djumps > djumps_used) {
 				timer_jump = djump_time;
-				jumps_used++;
+				djumps_used++;
 				state = PLAYER_STATE.DJUMP;
 				previous_state = PLAYER_STATE.FALL;
 				break;
