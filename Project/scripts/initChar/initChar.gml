@@ -19,9 +19,9 @@ var character = argument[2]; //the character to spawn
 	playerStats[PLAYER.TEST,PLAYER_STATS.JUMP_TIME] = 10;
 	playerStats[PLAYER.TEST,PLAYER_STATS.JUMP_AIR_CONTROL] = 0.2;
 	
-	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_SPEED] = 7;
-	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_TIME] = 20;
-	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_AIR_CONTROL] = 0.3;
+	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_SPEED] = 9;
+	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_TIME] = 10;
+	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_AIR_CONTROL] = 0.2;
 	
 	//sprites
 
@@ -54,3 +54,5 @@ char.sprite_idle = playerSprites[character,PLAYER_SPRITES.IDLE];
 char.sprite_arm_idle = playerSprites[character,PLAYER_SPRITES.ARM_IDLE];
 char.arm_x = playerSprites[character,PLAYER_SPRITES.ARM_X];
 char.arm_y = playerSprites[character,PLAYER_SPRITES.ARM_Y];
+
+return char;

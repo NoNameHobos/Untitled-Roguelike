@@ -22,7 +22,7 @@
 
 #region Non-State Dependant Events
 
-	y_speed += GRAVITY;
+	if (y_speed < TERMINAL_VEL) y_speed += GRAVITY*dragCoef(fall_time);
 
 	if (place_meeting(x,y+y_speed,Solid)) {
 		while (!place_meeting(x,y+sign(y_speed),Solid)) {
@@ -48,6 +48,9 @@
 #region State Dependant Events
 
 	switch(state) {
+		
+		#region PLAYER_STATE.IDLE
+		
 		case PLAYER_STATE.IDLE:
 		
 			if (x_input != 0) {
@@ -67,6 +70,9 @@
 			
 			break;
 			
+		#endregion
+		#region PLAYER_STATE.WALK
+		
 		case PLAYER_STATE.WALK:
 		
 			if (jump_input != 0) {
@@ -85,6 +91,7 @@
 			if (!place_meeting(x,y+1,Solid)) {
 				state = PLAYER_STATE.FALL;
 				previous_state = PLAYER_STATE.WALK;
+				fall_time = 0;
 				break;
 			}
 		
@@ -92,6 +99,8 @@
 			
 			break;
 			
+			#endregion
+		#region PLAYER_STATE.SKID
 		case PLAYER_STATE.SKID:
 			
 			if (x_input != 0) {
@@ -109,6 +118,7 @@
 			if (!place_meeting(x,y+1,Solid)) {
 				state = PLAYER_STATE.FALL;
 				previous_state = PLAYER_STATE.SKID;
+				fall_time = 0;
 				break;
 			}
 			
@@ -123,6 +133,9 @@
 			
 			break;
 			
+		#endregion
+		#region PLAYER_STATE.JUMP
+		
 		case PLAYER_STATE.JUMP:
 		
 			if (jump_input != 0 && timer_jump > 0) {
@@ -136,6 +149,7 @@
 			if (y_speed >= 0) {
 				state = PLAYER_STATE.FALL;
 				previous_state = PLAYER_STATE.JUMP;
+				fall_time = 0;
 				break;
 			}
 			
@@ -153,6 +167,9 @@
 		
 			break;
 			
+			#endregion
+		#region PLAYER_STATE.DJUMP
+		
 		case PLAYER_STATE.DJUMP:
 		
 			if (jump_input != 0 && timer_jump > 0) {
@@ -166,6 +183,7 @@
 			if (y_speed >= 0) {
 				state = PLAYER_STATE.FALL;
 				previous_state = PLAYER_STATE.DJUMP;
+				fall_time = 0;
 				break;
 			}
 			
@@ -182,19 +200,24 @@
 			timer_jump--;
 		
 			break;
-	
+			
+		#endregion
+		#region PLAYER_STATE.FALL
+		
 		case PLAYER_STATE.FALL:
 		
 			if (place_meeting(x,y+1,Solid)) {
 				state = PLAYER_STATE.SKID;
 				previous_state = PLAYER_STATE.FALL;
 				djumps_used = 0;
+				fall_time = 0;
 				break;
 			}
 			
-			if (jump_input_pressed != 0 and djumps > djumps_used) {
+			if (jump_input_pressed != 0 && djumps > djumps_used) {
 				timer_jump = djump_time;
 				djumps_used++;
+				fall_time = 0;
 				state = PLAYER_STATE.DJUMP;
 				previous_state = PLAYER_STATE.FALL;
 				break;
@@ -202,7 +225,11 @@
 			
 			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*jump_air_control);
 			
+			if (y_input > 0 && y_speed < TERMINAL_VEL) y_speed = TERMINAL_VEL;
+			fall_time++;
 			break;
+			
+		#endregion
 			
 		default:
 			show_debug_message("Invalid Player State");
