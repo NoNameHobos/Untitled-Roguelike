@@ -3,10 +3,15 @@
 hp = null;
 weight = null;
 walk_speed = null;
-jump_speed = null;
 jumps = null;
+
+jump_speed = null;
 jump_time = null;
 jump_air_control = null;
+
+djump_speed = null;
+djump_time = null;
+djump_air_control = null;
 
 #endregion
 
@@ -30,5 +35,6 @@ arm_angle = 0;
 state = PLAYER_STATE.IDLE;
 previous_state = PLAYER_STATE.IDLE;
 timer_jump = null;
+jumps_used = 0;
 
 #endregion

@@ -14,6 +14,7 @@
 		WALK,
 		SKID,
 		JUMP,
+		DJUMP,
 		FALL
 	}
 
@@ -33,10 +34,13 @@
 		HP,
 		WEIGHT,
 		WALK_SPEED,
-		JUMP_SPEED,
 		JUMPS,
+		JUMP_SPEED,
 		JUMP_TIME,
-	    JUMP_AIR_CONTROL
+	    JUMP_AIR_CONTROL,
+		DJUMP_SPEED,
+		DJUMP_TIME,
+		DJUMP_AIR_CONTROL
 	}
 
 #endregion

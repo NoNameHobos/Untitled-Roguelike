@@ -1,1 +1,1 @@
-draw_text(10,10,arm_angle);
+draw_text(10,10,jumps_used);

@@ -13,10 +13,15 @@ var character = argument[2]; //arg[2] = "TEST" or some other Macro
 	playerStats[PLAYER.TEST,PLAYER_STATS.HP] = 9;
 	playerStats[PLAYER.TEST,PLAYER_STATS.WEIGHT] = 70;
 	playerStats[PLAYER.TEST,PLAYER_STATS.WALK_SPEED] = 12;
-	playerStats[PLAYER.TEST,PLAYER_STATS.JUMP_SPEED] = 10;
 	playerStats[PLAYER.TEST,PLAYER_STATS.JUMPS] = 1;
+	
+	playerStats[PLAYER.TEST,PLAYER_STATS.JUMP_SPEED] = 10;
 	playerStats[PLAYER.TEST,PLAYER_STATS.JUMP_TIME] = 10;
 	playerStats[PLAYER.TEST,PLAYER_STATS.JUMP_AIR_CONTROL] = 0.2;
+	
+	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_SPEED] = 7;
+	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_TIME] = 20;
+	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMP_AIR_CONTROL] = 0.3;
 	
 	//sprites
 
@@ -34,10 +39,15 @@ char = instance_create_layer(x_,y_,"Player",Player);
 char.hp = playerStats[character,PLAYER_STATS.HP];
 char.weight = weightKgToDec(playerStats[character,PLAYER_STATS.WEIGHT]);
 char.walk_speed = playerStats[character,PLAYER_STATS.WALK_SPEED];
-char.jump_speed = playerStats[character,PLAYER_STATS.JUMP_SPEED];
 char.jumps = playerStats[character,PLAYER_STATS.JUMPS];
+
+char.jump_speed = playerStats[character,PLAYER_STATS.JUMP_SPEED];
 char.jump_time = playerStats[character,PLAYER_STATS.JUMP_TIME];
 char.jump_air_control = playerStats[character,PLAYER_STATS.JUMP_AIR_CONTROL];
+
+char.djump_speed = playerStats[character,PLAYER_STATS.DJUMP_SPEED];
+char.djump_time = playerStats[character,PLAYER_STATS.DJUMP_TIME];
+char.djump_air_control = playerStats[character,PLAYER_STATS.DJUMP_AIR_CONTROL];
 
 //Set sprite values
 char.sprite_idle = playerSprites[character,PLAYER_SPRITES.IDLE];

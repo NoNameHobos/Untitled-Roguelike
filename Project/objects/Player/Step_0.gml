@@ -9,7 +9,9 @@
 	y_input -= sign(keyboard_check(vk_up)+keyboard_check(ord("W")));
 	
 	var jump_input = 0;
-	jump_input += sign(keyboard_check(vk_space));
+	jump_input = sign(keyboard_check(vk_space));
+	var jump_input_pressed = 0;
+	jump_input_pressed = sign(keyboard_check_pressed(vk_space));
 	
 	arm_angle = point_direction(x+arm_x,y+arm_y,mouse_x,mouse_y);
 	
@@ -130,9 +132,17 @@
 			if (jump_input == 0) {
 				y_speed += GRAVITY*weight;
 			}
-		
+			
 			if (y_speed >= 0) {
 				state = PLAYER_STATE.FALL;
+				previous_state = PLAYER_STATE.JUMP;
+				break;
+			}
+			
+			if (jump_input_pressed != 0 && jumps != 0 && timer_jump != jump_time) {
+				timer_jump = djump_time;
+				jumps_used++;
+				state = PLAYER_STATE.DJUMP;
 				previous_state = PLAYER_STATE.JUMP;
 				break;
 			}
@@ -142,11 +152,50 @@
 			timer_jump--;
 		
 			break;
+			
+		case PLAYER_STATE.DJUMP:
+		
+			if (jump_input != 0 && timer_jump > 0) {
+				y_speed = -jump_speed;
+			}
+			
+			if (jump_input == 0) {
+				y_speed += GRAVITY*weight;
+			}
+		
+			if (y_speed >= 0) {
+				state = PLAYER_STATE.FALL;
+				previous_state = PLAYER_STATE.DJUMP;
+				break;
+			}
+			
+			if (jump_input_pressed != 0 && jumps > jumps_used && timer_jump != djump_time) {
+				timer_jump = djump_time;
+				jumps_used++;
+				state = PLAYER_STATE.DJUMP;
+				previous_state = PLAYER_STATE.DJUMP;
+				break;
+			}
+			
+			if (x_input != 0) x_speed = lerp(x_speed,x_input*walk_speed,(1-weight)*djump_air_control);
+			
+			timer_jump--;
+		
+			break;
 	
 		case PLAYER_STATE.FALL:
 		
 			if (place_meeting(x,y+1,Solid)) {
 				state = PLAYER_STATE.SKID;
+				previous_state = PLAYER_STATE.FALL;
+				jumps_used = 0;
+				break;
+			}
+			
+			if (jump_input_pressed != 0 and jumps > jumps_used) {
+				timer_jump = djump_time;
+				jumps_used++;
+				state = PLAYER_STATE.DJUMP;
 				previous_state = PLAYER_STATE.FALL;
 				break;
 			}
