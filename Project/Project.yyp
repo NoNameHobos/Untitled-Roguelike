@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "2cc93bd9-8f94-4e96-a378-59b3250fec29",
+            "Value": {
+                "id": "c8aac048-14eb-43c4-848b-e09ddef93393",
+                "resourcePath": "scripts\\cameraMacros\\cameraMacros.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3ae76506-5bb8-4187-adb3-6edcab52687b",
             "Value": {
                 "id": "1d820415-545d-4149-96e5-5c05c0af7257",
@@ -231,6 +239,22 @@
             }
         },
         {
+            "Key": "9ca2c18c-cc60-48de-9874-2c2d985a40ed",
+            "Value": {
+                "id": "0658f09d-c5fb-4296-a0ba-7aed638afca4",
+                "resourcePath": "objects\\ManagerManager\\ManagerManager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a5b65c23-b0dd-4ef2-ad8f-708510de1a04",
+            "Value": {
+                "id": "a37f1571-50fa-403e-858b-4d17fd07b462",
+                "resourcePath": "objects\\UIManager\\UIManager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
             "Value": {
                 "id": "edca2115-c93c-4b42-a957-285011334003",
@@ -306,8 +330,16 @@
             "Key": "d40a91c2-7993-4eab-adca-de8b54090461",
             "Value": {
                 "id": "c3c87366-53d5-4428-9d69-1807d6bf84de",
-                "resourcePath": "scripts\\macros\\macros.yy",
+                "resourcePath": "scripts\\gameMacros\\gameMacros.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "da7bbfc2-beb8-478f-9e6b-3303297b8ca1",
+            "Value": {
+                "id": "399efc30-6924-4ca8-96a4-54d2cfe7a03b",
+                "resourcePath": "sprites\\spr_uiHeart\\spr_uiHeart.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -335,11 +367,27 @@
             }
         },
         {
+            "Key": "f4a3c3ef-2ca5-47f0-b143-ca99cba6e4ae",
+            "Value": {
+                "id": "9a05f389-0fca-4576-b930-a61e4d8c8503",
+                "resourcePath": "scripts\\uiMacros\\uiMacros.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f7ba777d-6db0-485a-a499-a1471b24de07",
             "Value": {
                 "id": "ef9bee5a-3376-4e9c-ba67-a5b818af26b5",
                 "resourcePath": "rooms\\rm_testRoom\\rm_testRoom.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "fe7534cf-f8b6-48a3-b78e-57e16ed58cf5",
+            "Value": {
+                "id": "a759d7b0-260e-4dfb-be26-d889485af96d",
+                "resourcePath": "objects\\ViewportManager\\ViewportManager.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -353,6 +401,8 @@
     ],
     "script_order": [
         "d40a91c2-7993-4eab-adca-de8b54090461",
+        "2cc93bd9-8f94-4e96-a378-59b3250fec29",
+        "f4a3c3ef-2ca5-47f0-b143-ca99cba6e4ae",
         "59fb7376-386b-4750-ad72-aa0964f6ae42",
         "3b48cf90-6c80-4fc4-9ba9-7b4131db4cdb",
         "113d4485-3a1a-4358-a5a1-e496cda28517",

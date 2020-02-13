@@ -1,2 +1,2 @@
-draw_text(10,10,dragCoef(fall_time));
-draw_text(10,30,y_speed);
+draw_text(10,10,maxHp);
+draw_text(10,30,hp);

@@ -10,7 +10,7 @@ var character = argument[2]; //the character to spawn
 	
 	//stats
 	
-	playerStats[PLAYER.TEST,PLAYER_STATS.HP] = 9;
+	playerStats[PLAYER.TEST,PLAYER_STATS.HEARTS] = 9;
 	playerStats[PLAYER.TEST,PLAYER_STATS.WEIGHT] = 70;
 	playerStats[PLAYER.TEST,PLAYER_STATS.WALK_SPEED] = 12;
 	playerStats[PLAYER.TEST,PLAYER_STATS.DJUMPS] = 1;
@@ -36,7 +36,8 @@ var character = argument[2]; //the character to spawn
 char = instance_create_layer(xx,yy,"Player",Player);
 
 //Set stats
-char.hp = playerStats[character,PLAYER_STATS.HP];
+char.maxHp = playerStats[character,PLAYER_STATS.HEARTS]*2;
+char.hp = char.maxHp;
 char.weight = weightKgToDec(playerStats[character,PLAYER_STATS.WEIGHT]);
 char.walk_speed = playerStats[character,PLAYER_STATS.WALK_SPEED];
 char.djumps = playerStats[character,PLAYER_STATS.DJUMPS];

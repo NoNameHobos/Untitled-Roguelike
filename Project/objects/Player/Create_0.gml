@@ -2,7 +2,7 @@
 
 #region Stats
 
-hp = null;
+maxHp = null;
 weight = null;
 walk_speed = null;
 djumps = null;
@@ -40,5 +40,6 @@ previous_state = PLAYER_STATE.IDLE; //Previous State of the player
 timer_jump = null; //Used to measure how long the player has jumped, decreases each frame after a jump
 djumps_used = 0; //How many times the player has double jumped
 fall_time = 0; //How long the player has been falling in frames(f)
+hp = null;
 
 #endregion

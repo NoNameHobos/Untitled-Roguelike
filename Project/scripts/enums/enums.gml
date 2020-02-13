@@ -31,7 +31,7 @@
 #region PLAYER_STATS
    //hp, weight, walk_speed, jump_speed, jumps, jump_time,air_control
 	enum PLAYER_STATS {
-		HP, //Amount of hits
+		HEARTS, //Amount of hearts a character has
 		WEIGHT, //The weight, average is 70
 		WALK_SPEED, //The characters top speed
 		DJUMPS, //The amount of double jumps a character has
